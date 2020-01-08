@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	let arr=["rock","paper","scissor"];
+    let cpoints=0;
+    let ppoints=0;
+function game()
+{
+     for(let i=0;i<5;i++)
+    {
+	    
+        function computerPlay()    
+        {
+        let b=Math.floor(Math.random()*3);
+        return arr[b];
+        }
+        let computerSelection=computerPlay();
+
+        function playRound(playerSelection, computerSelection) 
+        {
+	        if(playerSelection==computerSelection)
+            {
+            return ("Its a Draw ");
+            }
+            else if(playerSelection=='rock'&&computerSelection=='scissor')
+            {
+            ppoints++;   
+            return("You Win rock beats scissor ");
+            }
+            else if(playerSelection=='rock'&&computerSelection=='paper')
+            {
+            cpoints++;  
+            return("You Loose paper beats rock");
+            }
+            else if(playerSelection=='paper'&&computerSelection=='scissor')
+            {
+            cpoints++;
+            return("You Loose scissor  beats paper");
+            }
+            else if(playerSelection=='paper'&&computerSelection=='rock')
+            {
+            ppoints++;
+            return("You Win paper  beats rock");
+            }
+            else if(playerSelection=='scissor'&&computerSelection=='paper')
+            {
+            ppoints++;
+            return("You Win scissor  beats paper");
+            }
+            else if(playerSelection=='scissor'&&computerSelection=='rock')
+            {
+            cpoints++
+            return("You Loose rock  beats scissor");
+            }
+        }    
+        let playerSelection=prompt("enter your choice ",'ROCK/PAPER/SCISSOR');
+        playerSelection=playerSelection.toLowerCase(); 
+        let s=playRound(playerSelection,computerSelection);
+        console.log(s);
+    }
+}
+    game();
+    if(ppoints==cpoints)
+    console.log("The GAME ENDED IN A DRAW");
+    else if(ppoints>cpoints)
+    console.log(" Congrats You Won The Game ");
+    else
+    console.log("YOU LOST");
+</script>
+</body>
+</html>
